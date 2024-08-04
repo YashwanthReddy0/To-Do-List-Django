@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css" integrity="sha512-VNBisELNHh6+nfDjsFXDA6WgXEZm8cfTEcMtfOZdx0XTRoRbr/6Eqb2BjqxF4sNFzdvGIt+WqxKgn0DSfh2kcA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: #172d13;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #6bb77b;
+            width: 100%;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .navbar-brand:hover, .nav-link:hover {
+            color: #d4edda !important;
+            transform: scale(1.1);
+        }
+        .body1 {
+            border: 2px solid #ddd;
+            background-color: #d76f30;
+            border-radius: 15px;
+            margin: 25px auto;
+            padding: 15px 20px;
+            width: 300px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .body1:hover {
+            transform: scale(1.05);
+            background-color: #e0843e;
+        }
+        .anchor {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+        }
+        .anchor:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% for i in data %}
+    <div class="body1">
+        <form action="">
+            <a class="anchor" href="{% url 'details' i.id %}">TASK : {{i.task}}</a><br>
+            DESCRIPTION : {{i.description}}
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
